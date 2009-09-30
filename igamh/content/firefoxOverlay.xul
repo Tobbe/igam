@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="chrome://igamh/skin/overlay.css" type="text/css"?>
+<!DOCTYPE overlay SYSTEM "chrome://igamh/locale/igamh.dtd">
+<overlay id="igamh-overlay" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+	<script src="overlay.js"/>
+		<stringbundleset id="stringbundleset">
+			<stringbundle id="igamh-strings" src="chrome://igamh/locale/igamh.properties"/>
+		</stringbundleset>
+
+		<menupopup id="menu_ToolsPopup">
+		<menuitem id="igamh-hello" label="&igamh.label;" oncommand="igamh.onMenuItemCommand(event);"/>
+	</menupopup>
+</overlay>

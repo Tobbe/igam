@@ -1,0 +1,4 @@
+content	igamh	content/
+locale	igamh	en-US	locale/en-US/
+skin	igamh	classic/1.0	skin/
+overlay	chrome://browser/content/browser.xul	chrome://igamh/content/firefoxOverlay.xul

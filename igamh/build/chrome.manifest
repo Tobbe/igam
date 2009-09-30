@@ -1,0 +1,4 @@
+content igamh jar:chrome/igamh.jar!/content/
+locale igamh en-US jar:chrome/igamh.jar!/locale/en-US/
+skin igamh classic/1.0 jar:chrome/igamh.jar!/skin/
+overlay	chrome://browser/content/browser.xul	chrome://igamh/content/firefoxOverlay.xul
