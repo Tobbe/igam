@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+	<ModulePrefs title="Mail - __UP_Domain__"
+		description='Incorporate Google Apps Mail for hosted domain(s) into your iGoogle Start Page. By using standard Google Mobile Services you only need to set your Google Apps Domain and the Google Apps sign-on is used. Multiple instances of the gadget are allowed to support multiple domains. NOTE: This gadget is designed to be used together with the Firefox extension "iGoogle Apps Mail Helper" and the "igoogle google apps" and "igoogle google apps html" Greasemonkey scripts. This gadget would not have been created without the excelent work by Big Russ'
+		screenshot=""
+		thumbnail=""
+		author="Tobbe Lundberg"
+		author_email="tobbe+igam@tlundberg.com"
+		author_location="Sweden"
+		height="400" width="320"
+		title_url="__UP_TitleURL__"
+		directory_title="Google Apps Mail for a hosted domain">
+		<Require feature="dynamic-height"/>
+		<Require feature="views"/>
+		<Require feature="setprefs"/>
+	</ModulePrefs>
+	<UserPref name="Domain" datatype="string" required="true"/>
+	<UserPref name="TitleURL" datatype="hidden"/>
+	<UserPref name="height" display_name="Gadget Height" datatype="enum" default_value="400">
+		<EnumValue value="200" display_value="Very Small"/>
+		<EnumValue value="300" display_value="Small"/>
+		<EnumValue value="400" display_value="Medium"/>
+		<EnumValue value="500" display_value="Large"/>
+		<EnumValue value="600" display_value="Very Large"/>
+		<EnumValue value="700" display_value="Huge"/>
+	</UserPref>
+	<Content type="html" view="home">
+	<![CDATA[
+	<script type="application/x-javascript">
+		function extToIgListener(event) {
+			var elm = event.target;
+
+			// The attributes are set in the extension code
+			var myextra1 = elm.getAttribute("myextra1");
+			var myextra2 = elm.getAttribute("myextra2");
+			var target = elm.getAttribute("target");
+
+			if (elm) {
+				window.eval("goToView('canvas', {'target':target, 'rnd':myextra1, 'th':myextra2})");
+			}
+
+			// Clean up
+			if (elm.hasAttrubute("target")) {
+				elm.removeAttribute("target");
+			}
+			if (elm.hasAttribute("myextra1")) {
+				elm.removeAttribute("myextra1");
+			}
+			if (elm.hasAttribute("myextra2")) {
+				elm.removeAttribute("myextra2");
+			}
+		}
+		window.addEventListener("extToIgEvent", extToIgListener, false);
+
+		function goToView(dest, params) {
+			var supported_views = gadgets.views.getSupportedViews();
+			gadgets.views.requestNavigateTo(supported_views[dest], params);
+		};
+
+		var userprefs = new gadgets.Prefs();
+		var d = userprefs.getString("Domain");
+		var u = "https://mail.google.com/a/" + d + "/";
+
+		userprefs.set("TitleURL", u);
+
+		u += "x/";
+
+		if (d == "") {
+			document.write("Edit gadget settings to set your Google App Domain. Also don't forget to install the firefox extension and the greasemonkey scripts");
+		} else {
+			document.write('<iframe src="' + u + '" width="100%" height="' + userprefs.getString('height') + 'px" frameborder="0" scrolling="auto" id="apps_mail_frame"><p>To use this gadget please upgrade your browser to a version that supports iframes</p></iframe>');
+		}
+		gadgets.window.adjustHeight();
+	</script>
+	]]>
+	</Content>
+
+	<Content type="html" view="canvas">
+	<![CDATA[
+	<script type="text/javascript">
+		var userprefs = new gadgets.Prefs();
+		var d = userprefs.getString("Domain");
+		var u = "https://mail.google.com/a/" + d + "/h/";
+
+		var prefs = gadgets.views.getParams();
+		if (prefs['target'] == 'inbox') {
+			document.write('<iframe src="' + u + prefs['rnd']+ '/?#enableGM" width="100%" height="100%" frameborder="0" id="apps_mail_frame_canvas"></iframe>');
+		} else if (prefs['target'] == 'thread') {
+			document.write('<iframe src="' + u + prefs['rnd']+ '/?v=c&th=' + prefs['th'] + '#enableGM" width="100%" height="100%" frameborder="0" id="apps_mail_frame_canvas"></iframe>');
+		} else if (prefs['target'] == 'compose') {
+			document.write('<iframe src="' + u + prefs['rnd']+ '/?v=b&eot=1&pv=tl&cs=b#enableGM" width="100%" height="100%" frameborder="0" id="apps_mail_frame_canvas"></iframe>');
+		}
+	</script>
+	]]>
+	</Content>
+</Module>
