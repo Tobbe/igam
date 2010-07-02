@@ -10,6 +10,8 @@
 // @include        http://mail.google.com/a/*/x/*/?f*
 // @include        https://mail.google.com/a/*/x/*/?a=cfa*
 // @include        http://mail.google.com/a/*/x/*/?a=cfa*
+// @include        https://mail.google.com/a/*/x/*/?shva=1
+// @include        http://mail.google.com/a/*/x/*/?shva=1
 // ==/UserScript==
 
 /**
@@ -25,6 +27,7 @@ var body = document.getElementsByTagName('body')[0];
 
 var style1 = document.createElement('style');
 style1.innerHTML  = "body, div.msgrd a, div.msg a { font-size: 80%; }";
+style1.innerHTML += "div.msgrd, div.msg { cursor: pointer; }";
 style1.innerHTML += "div.nav form {clear: both; padding-top: 10px; }";
 style1.innerHTML += "div.nav a.navlnk { display: block !important; float: left; padding-right: 8px; }";
 style1.innerHTML += "div.bkg select { margin-top: 3px; }";
@@ -85,16 +88,23 @@ function setUpClickEvent(elm) {
 		th = rndthPart.substring(rndthPart.indexOf('th=') + 3);
 
 		// We don't need a handler for the link itself, the click event will
-		// bubble up to the TD element and we'll handle it there
+		// bubble up to the DIV element and we'll handle it there
 		elm.href = 'javascript:void(0)';
 
 		if (elm.parentNode.nodeName == 'TD') {
 			// remove old click event listener
 			elm.parentNode.setAttribute("onclick", "");
 
-			// add our own click event listener
-			elm.parentNode.addEventListener("click", function(){sendCanvasViewRequest('thread', rnd, th);}, false);
+			var parentDiv = elm.parentNode.parentNode.parentNode.parentNode.parentNode;
+			if (parentDiv.nodeName == 'DIV' && parentDiv.getAttribute("class").substr(0, 3) == 'msg') {
+				// add our own click event listener
+				parentDiv.addEventListener("click", function(){sendCanvasViewRequest('thread', rnd, th);}, false);
+			}
 		}
+		
+		// Don't want to fire our click function when clicking on a checkbox to select an email
+		var inputCheckbox = elm.parentNode.parentNode.childNodes[1].childNodes[1];
+		inputCheckbox.addEventListener("click", function(e){e.stopPropagation();}, false);
 	} else if (elm.id && elm.id == 'bns0') {
 		// Inbox link
 
