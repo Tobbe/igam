@@ -23,7 +23,7 @@ elm = document.getElementsByTagName('table')[0].childNodes[1].firstChild.childNo
 elm.parentNode.removeChild(elm);
 
 // Bottom info text
-elm = document.getElementsByTagName('table')[5];
+elm = Array.filter(document.getElementsByTagName('table'), function (elem) { return elem.getAttribute('class') == 'ft'; })[0];
 elm.parentNode.removeChild(elm);
 
 if (currentPageIsTheInbox()) {
