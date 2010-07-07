@@ -25,3 +25,24 @@ elm.parentNode.removeChild(elm);
 // Bottom info text
 elm = document.getElementsByTagName('table')[5];
 elm.parentNode.removeChild(elm);
+
+if (currentPageIsTheInbox()) {
+	makeSenderAndDateClickable();
+}
+
+
+function currentPageIsTheInbox() {
+	return location.href.match(/^https?:\/\/mail\.google\.com\/a\/\w+\.\w+\/h\/\w+\/\?$/) != null;
+}
+
+function makeSenderAndDateClickable() {
+	var emailRows = document.getElementsByTagName('table')[3].getElementsByTagName('tr');
+	for (i = 0; i < emailRows.length; i++) {
+		var emailLink = emailRows[i].childNodes[5].getElementsByTagName('a')[0];
+		var columns = emailRows[i].getElementsByTagName('td');
+		for (j = 1; j < 4; j++) {
+			columns[j].addEventListener("click", function (lnk) { return function () { location.href=lnk; } }(emailLink), false);
+			columns[j].style.cursor = 'pointer';
+		}
+	}
+}
