@@ -41,7 +41,7 @@ function makeSenderAndDateClickable() {
 		var emailLink = emailRows[i].childNodes[5].getElementsByTagName('a')[0];
 		var columns = emailRows[i].getElementsByTagName('td');
 		for (j = 1; j < 4; j++) {
-			columns[j].addEventListener("click", function (lnk) { return function () { location.href=lnk; } }(emailLink), false);
+			columns[j].addEventListener("click", function (lnk) { return function () { location.href = lnk; } }(emailLink), false);
 			columns[j].style.cursor = 'pointer';
 		}
 	}
