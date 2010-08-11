@@ -14,28 +14,6 @@ This gadget would not have been created without the excelent work by Big Russ
 Screenshots
 -----------
 
-### Mobile gmail in iGoogle as it has been done before: ###
-
-Plain "mobile gmail in an iframe":
-
-![Mobile gmail displayed in a simple iframe igoogle-gadget](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget.png)
-
-
-Scrolling down to see the rest of it you get this:
-
-![Rest of "plain mobile gmail in an iframe" interface](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget2.png)
-
-
-This is what you get if you click on a subject to read the messages:
-
-![Mobile message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_message.png)
-
-
-To compose a message, this is what you have to work with:
-
-![Mobile compose message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_compose.png)
-
-
 ### Gmail in iGoogle as I have done it: ###
 
 Slimmed-down inbox view in the gadget:
@@ -56,6 +34,28 @@ Inbox links all lead to this full canvas view:
 Composing messages is also done in canvas view:
 
 ![HTML gmail compose view][igam_compose]
+
+
+### For reference: Mobile gmail in iGoogle as it has been done before: ###
+
+Plain "mobile gmail in an iframe":
+
+![Mobile gmail displayed in a simple iframe igoogle-gadget](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget.png)
+
+
+Scrolling down to see the rest of it you get this:
+
+![Rest of "plain mobile gmail in an iframe" interface](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget2.png)
+
+
+This is what you get if you click on a subject to read the messages:
+
+![Mobile message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_message.png)
+
+
+To compose a message, this is what you have to work with:
+
+![Mobile compose message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_compose.png)
 
 
 Usage
