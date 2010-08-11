@@ -62,6 +62,7 @@ Usage
 -----
 
 To get this to work you need four things:
+
 1.  The iGoogle gadget needs to be added to your iGoogle page. Find the "Add by
     URL" option in iGoogle and use this url:
     http://github.com/Tobbe/igam/raw/master/igam_gadget.xml 
