@@ -18,22 +18,22 @@ Screenshots
 
 Plain "mobile gmail in an iframe":
 
-![Mobile gmail displayed in a simple iframe igoogle-gadget](readme_images/no_igam_gadget.png)
+![Mobile gmail displayed in a simple iframe igoogle-gadget](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget.png)
 
 
 Scrolling down to see the rest of it you get this:
 
-![Rest of "plain mobile gmail in an iframe" interface](readme_images/no_igam_gadget2.png)
+![Rest of "plain mobile gmail in an iframe" interface](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_gadget2.png)
 
 
 This is what you get if you click on a subject to read the messages:
 
-![Mobile message view](readme_images/no_igam_message.png)
+![Mobile message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_message.png)
 
 
 To compose a message, this is what you have to work with:
 
-![Mobile compose message view](readme_images/no_igam_compose.png)
+![Mobile compose message view](http://github.com/Tobbe/igam/raw/master/readme_images/no_igam_compose.png)
 
 
 ### Gmail in iGoogle as I've done it: ###
