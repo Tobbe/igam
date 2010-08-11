@@ -63,15 +63,15 @@ Usage
 
 To get this to work you need four things:
 1.  The iGoogle gadget needs to be added to your iGoogle page. Find the "Add by
-        URL" option in iGoogle and use this url:
-		http://github.com/Tobbe/igam/raw/master/igam_gadget.xml 
+    URL" option in iGoogle and use this url:
+    http://github.com/Tobbe/igam/raw/master/igam_gadget.xml 
 2.  A [Greasemonkey](http://www.greasespot.net/) script for the mobile gmail
-        interface has been created. First install Greasemonkey if you don't
-		already have it, then install [the script][gm_mobile] by clicking on the link.
+    interface has been created. First install Greasemonkey if you don't
+    already have it, then install [the script][gm_mobile] by clicking on the link.
 3.  There is [another Greasemonkey script][gm_html] that you need for the gmail html interface.
 4.  To make it all work together you need a firefox extension called simply 
-        [iGoogle Apps Mail Helper][igamh]. Click on that link for further 
-		installation instructions for the extension.
+    [iGoogle Apps Mail Helper][igamh]. Click on that link for further 
+    installation instructions for the extension.
 
 [igam_gadget]: http://github.com/Tobbe/igam/raw/master/readme_images/igam_gadget.png "Greasemonkied gadget"
 [igam_message]: http://github.com/Tobbe/igam/raw/master/readme_images/igam_message.png "Greasemonkied html conversation view"
